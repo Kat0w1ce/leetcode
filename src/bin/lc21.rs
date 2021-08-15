@@ -1,32 +1,24 @@
-use std::{borrow::Borrow, ptr::NonNull};
-
 // #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
-  pub val: i32,
-  pub next: Option<Box<ListNode>>
+    pub val: i32,
+    pub next: Option<Box<ListNode>>,
 }
 
 impl ListNode {
-  #[inline]
-  fn new(val: i32) -> Self {
-    ListNode {
-      next: None,
-      val
+    #[inline]
+    fn new(val: i32) -> Self {
+        ListNode { next: None, val }
     }
-  }
 }
 
-fn main(){
-
-}
-type  List=Option<Box<ListNode>>;
+fn main() {}
+type List = Option<Box<ListNode>>;
 pub fn merge_two_lists(
     l1: Option<Box<ListNode>>,
-    l2: Option<Box<ListNode>>) -> Option<Box<ListNode>>
-{
-
-
-    match (l1, l2) {    // gets of ownership of T in Option<T>
+    l2: Option<Box<ListNode>>,
+) -> Option<Box<ListNode>> {
+    match (l1, l2) {
+        // gets of ownership of T in Option<T>
         (Some(n1), None) => Some(n1),
         (None, Some(n2)) => Some(n2),
         (Some(n1), Some(n2)) => {
@@ -54,8 +46,7 @@ pub fn merge_two_lists(
 //     }
 //     let  head= ListNode::new(0);
 //     let mut p=&head;
-    
-    
+
 //     let mut a=Some(Box::new(ListNode{val:0,next:l1}));
 //     let mut b=Some(Box::new(ListNode{val:0,next:l2}));
 //     // while a.unwrap().next.is_some()||b.unwrap().next.is_some() {
@@ -70,30 +61,30 @@ pub fn merge_two_lists(
 //         //     (true,true)=>{let tmp=a.unwrap().next.unwrap().val
 
 //         //     }
-            
+
 //         //     (_,_)=> return head.next
 //         // };
 //         match (a.unwrap().next,b.unwrap().next) {
 //                 (None,Some(node))=>{
-                    
+
 //                 }
 //                 (Some(node),None)=>{}
 //                 (Some(Anode),Some(Bnode))=>{}
 //                 (_,_)=>return head.next
-            
+
 //         };
 //     }
 //     None
 // }
 
 // impl Iterator for ListNode {
-    
+
 //     type Item = Option<i32>;
 
 //     fn next(&mut self) -> Option<Self::Item> {
 //         let rst=match self.next {
 //             Some(i)
-            
+
 //         };
 
 //         None
